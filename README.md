@@ -42,8 +42,9 @@ Before running the tests, ensure you have the following installed:
 1. **Clone Repository**
 
  ```sh
-   git clone https://github.com/yourusername/playwright-project.git
-   cd playwright-project
+   git clone https://github.com/sradha-mohanty/awesome-qa-tool.git
+   
+   cd awesome-qa-tool
  ```
 2. **Install dependencies**
   Open a terminal in Visual Studio Code.

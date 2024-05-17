@@ -6,8 +6,6 @@ This project uses [Playwright](https://playwright.dev/) for end-to-end testing o
 
 This document serves as a guide for automating tasks on the Awesome QA Tool website using the Playwright automation framework. It aims to streamline repetitive tasks and improve efficiency in creating questions and answers. 
 
-## Getting Started
-
 ## Prerequisites
 
 Before running the tests, ensure you have the following installed:
@@ -19,7 +17,9 @@ Before running the tests, ensure you have the following installed:
 
 - Chrome, Firefox, WebKit (Safari), Edge, and Chromium 
 
-# Folder and File Descriptions
+## Getting Started
+
+### Folder and File Descriptions
 - **`playwright-test/`**: Contains the folders/files related to playwright test automation.
  - **`allure-report/`**: Stores test reports.
  - **`allure-results/`**: Stores allure  results for test reports.
@@ -35,15 +35,15 @@ Before running the tests, ensure you have the following installed:
 - **`package-lock.json`**: Records the exact versions of installed dependencies.
 - **`README.md`**: Documentation file for the project.
 
-# Playwright Installation 
+## Playwright Installation 
 
-## Installation Steps 
+### Installation Steps 
 
 1. **Clone Repository**
 
  ```sh
-  git clone https://github.com/yourusername/playwright-project.git
-  cd playwright-project
+   git clone https://github.com/yourusername/playwright-project.git
+   cd playwright-project
  ```
 2. **Install dependencies**
   Open a terminal in Visual Studio Code.
@@ -51,17 +51,18 @@ Before running the tests, ensure you have the following installed:
  ```sh
     npm install 
  ```
-# Running the Automation Tests
+### Running the Automation Tests
 
   Navigate to the project directory. 
   Run the automation scripts using the following command: 
  ```sh
-  npx playwright test
+   npx playwright test
  ```
-# Writing Tests
+### Writing Tests
   Tests are located in the tests directory. You can create new test files with the .spec.js  extension. Here’s an example of a simple test:
 
-  `test('Submit Questions and Answers',async({page})=>{
+  ```sh
+      test('Submit Questions and Answers',async({page})=>{
         expect(page.url()).toBe('http://localhost:8000/');
         const obj=new QATool(page);
         const qnaList = testdata.slice(1, testdata.length);
@@ -72,11 +73,12 @@ Before running the tests, ensure you have the following installed:
         await obj.checkCountOfQnA();
         }  
         logger.info("Question and Answers submitted successfully");
-    });`
+      });
+  ```
 
-# Reporting 
+## Reporting 
 
-## Generating Reports 
+### Generating Reports 
 
  Playwright provides built-in support for generating test reports using various formats such as Html, JSON, JUnit XML, etc. 
 
@@ -92,7 +94,7 @@ Before running the tests, ensure you have the following installed:
 **Check the logs post execution:**
    Go to logs folder from source directory and check the <Date>-app-log.log file
 
-# Contributing to the project
+## Contributing to the project
 
 If you'd like to contribute to this project, please follow these steps:
 

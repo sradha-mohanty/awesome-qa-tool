@@ -36,7 +36,7 @@ Before running the tests, ensure you have the following installed:
 - **`package-lock.json`**: Records the exact versions of installed dependencies.
 - **`README.md`**: Documentation file for the project.
 
-## Installation & Writing Tests
+## Installation, Running and Writing Tests
 
 ### Installation Steps 
 
@@ -58,8 +58,26 @@ Before running the tests, ensure you have the following installed:
   Navigate to the project directory. 
   Run the automation scripts using the following command: 
  ```sh
-   npx playwright test
+   npm run test
  ```
+ It runs the test and once it is completed, it opens the allure report and html playwright-report
+
+### Generating Reports 
+
+ Playwright provides built-in support for generating test reports using various formats such as Html, JSON, JUnit XML, etc. 
+
+**Command to generate an HTML playwright report:**
+ ```sh
+    npm run open-playwright-report 
+ ```
+**Command to generate allure report:**
+ ```sh
+    npm run open-allure-report  
+ ```
+**Check the logs post execution:**
+
+   Go to logs folder from source directory and check the <Date>-app-log.log file
+
 ### Writing Tests
   Tests are located in the playwright-test/tests directory. You can create new test files with the .spec.js  extension. Here’s an example of a simple test:
 
@@ -77,24 +95,6 @@ Before running the tests, ensure you have the following installed:
         logger.info("Question and Answers submitted successfully");
       });
   ```
-
-## Reporting 
-
-### Generating Reports 
-
- Playwright provides built-in support for generating test reports using various formats such as Html, JSON, JUnit XML, etc. 
-
-**Command to generate an HTML report:**
- ```sh
-     npx playwright show-report 
- ```
-**Command to generate allure report:**
- ```sh
-    allure generate allure-results -o allure-report –clean 
-    allure open allure-report  
- ```
-**Check the logs post execution:**
-   Go to logs folder from source directory and check the <Date>-app-log.log file
 
 ## Contributing to the project
 

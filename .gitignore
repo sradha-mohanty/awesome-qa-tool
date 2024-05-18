@@ -13,3 +13,11 @@ node_modules/
 /playwright/.cache/
 
 /.vscode
+
+/logs
+
+#playwright & allure report
+/allure-report
+/allure-results
+/playwright-report
+/test-results

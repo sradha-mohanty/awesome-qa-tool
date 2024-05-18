@@ -61,7 +61,7 @@ Before running the tests, ensure you have the following installed:
    npx playwright test
  ```
 ### Writing Tests
-  Tests are located in the tests directory. You can create new test files with the .spec.js  extension. Here’s an example of a simple test:
+  Tests are located in the playwright-test/tests directory. You can create new test files with the .spec.js  extension. Here’s an example of a simple test:
 
   ```sh
       test('Submit Questions and Answers',async({page})=>{

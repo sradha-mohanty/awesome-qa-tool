@@ -58,7 +58,7 @@ Before running the tests, ensure you have the following installed:
   Navigate to the project directory. 
   Run the automation scripts using the following command: 
  ```sh
-   npm run test
+   npm run test:local
  ```
  It runs the test and once it is completed, it opens the allure report and html playwright-report
 
@@ -68,7 +68,7 @@ Before running the tests, ensure you have the following installed:
 
 **Command to generate an HTML playwright report:**
  ```sh
-    npm run open-playwright-report 
+    npm run open-html-report  
  ```
 **Command to generate allure report:**
  ```sh
@@ -95,7 +95,48 @@ Before running the tests, ensure you have the following installed:
         logger.info("Question and Answers submitted successfully");
       });
   ```
+## Steps to run the project in azure pipeline
 
+To run the pipeline and generate the azure report, follow the below steps:
+
+**Prerequisites**: Need to have an azure account to create a pipeline:
+
+1. Click to Pipelines folder
+2. Click on New pipeline
+3. Choose github option from the list
+4. Choose your repository
+5. Click on Approve & Install 
+6. Validate and Save in the pipeline.
+7. Once the pipeline runs successfully, go to the Tests folder from the pipeline and check the test results
+
+### Pipeline Configuration:
+```sh
+```yaml
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: npm install
+  displayName: 'Install npm'
+
+- script: npx playwright install
+  displayName: 'Install Playwright'
+
+- script: npm run test:azure
+  displayName: 'Run all tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'test-results/results.xml'
+    mergeTestResults: true
+    testRunTitle: 'Playwright JUnit Test Results'
+  condition: always()
+  displayName: 'Publish JUnit Test Results'
+```
 ## Contributing to the project
 
 If you'd like to contribute to this project, please follow these steps:

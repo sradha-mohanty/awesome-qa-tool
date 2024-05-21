@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test && npm run open-reports",
-    "open-reports": "concurrently \"npm run open-playwright-report\" \"npm run open-allure-report\"",
-    "open-playwright-report": "npx playwright show-report",
+    "test:azure": "npx playwright test",
+    "test:local": "npx playwright test && npm run open-html-report",
+    "open-html-report": "npx playwright show-report",
     "open-allure-report": "allure generate --clean && allure open"
   },
   "keywords": [],

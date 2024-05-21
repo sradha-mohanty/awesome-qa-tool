@@ -3,15 +3,9 @@ import locators from './locators.json';
 import testdata from './testdata.json'
 const { test, expect } = require("@playwright/test");
 
-
 export class QATool {
   constructor(page) {
     this.page = page;
-  }
-
-  async openURL() {
-    await this.page.goto();
-    await expect(this.page.getByText('The awesome Q/A tool')).toBeVisible()
   }
   async createQuestion(data) {
     await this.page.locator(locators.QATool.question).fill(data.question);
@@ -100,6 +94,5 @@ export class QATool {
     await h1.hover();
     let toolTipCreateNewQuestionLocator = await this.page.locator("//span[contains(@class,'tooltipped-title__tooltip hidden-xl-down')]").last().textContent();
     expect(toolTipCreateNewQuestionLocator).toEqual("Here you can create new questions and their answers.");
-
   }
-}
+ }

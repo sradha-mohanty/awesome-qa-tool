@@ -29,7 +29,7 @@ module.exports = defineConfig({
    },
    retries:2,
    reporter: [
-    ["html"], ["allure-playwright",
+    ["html",{ open: 'never' }],['junit', { outputFile: 'test-results/results.xml' }], ["allure-playwright",
     {
       detail: true,
       outputFolder: "allure-results",
